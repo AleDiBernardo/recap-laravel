@@ -152,7 +152,7 @@ Estendere il layout nelle altre pagine:
 @extends('layouts.app')
 
 @section('content')
-QUI VA IL CONTENUTO DELLA PAGINA
+// QUI VA IL CONTENUTO DELLA PAGINA
 @endsection
 ```
 
