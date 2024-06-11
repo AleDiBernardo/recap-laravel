@@ -243,4 +243,17 @@ Per creare una migration di modifica, utilizza il comando:
 ```sh
 php artisan make:migration update_nome_tabella_table --table=nome_tabella
 ```
+
+Si utilizza quado per esempio si lavora in team e ci sono delle modifiche per colpa di un errore e invece di dire al team di fare rollback (sarebbe complicato) facciamo una migration di modifica semplicemente.
+
 Questo comando creerà una nuova migration con `Schema::table()` al posto di `Schema::create()`.
+
+## Cancellare le Migration
+
+Per cancellare tutte le migration dal database e tutti i dati, utilizza il comando:
+```sh
+php artisan migrate:reset
+```
+Le migration nel progetto restano.
+
+**<span style="color: red;">ATTENZIONE:</span>** **è un comando pericoloso soprattutto in produzione.**
