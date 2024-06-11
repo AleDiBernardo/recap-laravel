@@ -8,6 +8,9 @@
 ## 2. Installare le Dipendenze
 ```sh
 composer install
+```
+
+```sh
 npm install
 ```
 
