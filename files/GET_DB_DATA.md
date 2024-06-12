@@ -1,4 +1,6 @@
 [README](../README.md)<br>
+### **Precedente:**
+[PRIMI PASSI](FIRST_STEPS.md)
 
 ---
 
@@ -17,3 +19,5 @@ DB_PASSWORD=root OR vuota OR passwordDatabase
 ## Interagire con l'ORM
 Utilizzare Eloquent, l'ORM di Laravel.
 
+### **Successivo:**
+[MIGRATION](MIGRATION.md)

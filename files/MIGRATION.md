@@ -1,5 +1,8 @@
 [README](../README.md)<br>
 
+### **Precedente:**
+[PRENDERE DATI DA UN DATABASE](GET_DB_DATA.md)
+
 ---
 
 ## MIGRATION
@@ -67,3 +70,5 @@ Le migration nel progetto restano.
 
 **<span style="color: red;">ATTENZIONE:</span>** **è un comando pericoloso soprattutto in produzione.**
 
+### **Successivo:**
+[SEEDER](SEEDER.md)

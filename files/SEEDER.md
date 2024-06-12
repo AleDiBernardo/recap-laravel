@@ -1,5 +1,8 @@
 [README](../README.md)<br>
 
+### **Precedente:**
+[MIGRATION](MIGRATION.md)
+
 ---
 
 # SEEDER
@@ -93,5 +96,6 @@ class PlayersTableSeeder extends Seeder {
 php artisan db:seed --class=PlayersTableSeeder
 ```
 
-
+### **Successivo:**
+[GENERARE DATI PER IL TESTING](TEST_DATA.md)
 

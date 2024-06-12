@@ -1,5 +1,8 @@
 [README](../README.md)<br>
 
+### **Precedente:**
+[VIEW](VIEW.md)
+
 ---
 
 ## CONTROLLER
@@ -66,3 +69,6 @@ Book::find($id); //oggetto Model
 //istanziare oggetto ecc... 
 $book->save();
 ```
+
+### **Successivo:**
+[ALTRI PASSAGGI](OTHER.md)

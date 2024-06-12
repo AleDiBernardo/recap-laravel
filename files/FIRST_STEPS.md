@@ -53,3 +53,7 @@ npm run dev
 ## 8. Creare il Database in MAMP/LAMP
 
 ## 9. Importare il File del Database
+
+---
+### **Successivo:**
+[PRENDERE DATI DA UN DATABASE](GET_DB_DATA.md)

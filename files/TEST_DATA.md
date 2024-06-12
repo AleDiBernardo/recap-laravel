@@ -1,5 +1,8 @@
 [README](../README.md)<br>
 
+### **Precedente:**
+[SEEDER](SEEDER.md)
+
 ---
 
 ## Come Usare la Classe Faker per Generare Dati Fittizi (metodo 1)
@@ -212,3 +215,5 @@ php artisan make:seeder PlayersTableSeeder
 FUTDB_API_TOKEN=your_token_here
 ```
 
+### **Successivo:**
+[MODEL](MODEL.md)
