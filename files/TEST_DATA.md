@@ -1,3 +1,7 @@
+[README](../README.md)<br>
+
+---
+
 ## Come Usare la Classe Faker per Generare Dati Fittizi (metodo 1)
 
 [Documentazione Faker](https://fakerphp.org/)
