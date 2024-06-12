@@ -44,6 +44,7 @@ npm run dev
 ```
 
 ## 6. Aprire il Link di Artisan Serve
+![alt text](image-3.png)
 
 ## 7. Avviare MAMP/LAMP
 
