@@ -1,6 +1,6 @@
 [README](../README.md)<br>
 ### **Precedente:**
-[PRIMI PASSI](FIRST_STEPS.md)
+[PRIMI PASSAGGI](FIRST_STEPS.md)
 
 ---
 
