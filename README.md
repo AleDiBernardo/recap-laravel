@@ -1,5 +1,18 @@
 ### RECAP LARAVEL
 ---
+## **INDICE:**
+[PRIMI PASSAGGI](files/FIRST_STEPS.md)
+[PRENDERE DATI DA UN DATABASE](files/GET_DB_DATA.md)
+[MIGRATION](files/MIGRATION.md)
+[SEEDER](files/SEEDER.md)
+[GENERARE DATI PER IL TESTING](files/TEST_DATA.md)
+[MODEL](files/MODEL.md)
+[VIEW](files/VIEW.md)
+[CONTROLLER](files/CONTROLLER.md)
+[ALTRI PASSAGGI](files/OTHER.md)
+
+--- 
+
 # PRIMI PASSAGGI
 
 
@@ -8,11 +21,11 @@
 - ### creare la repo per il template 
 - ### andare in setting e spuntare `Template repository`
 
-    ![alt text](image.png)
+    ![alt text](img/image.png)
 - ### cliccare sul bottone `Use this template`
-    ![alt text](image-1.png)
+    ![alt text](img/image-1.png)
 - ### successivamente su `Create a new repository`
-    ![alt text](image-2.png)
+    ![alt text](img/image-2.png)
 - ### mettere il nome della repo e successivamente `Create repository`
 - ### clonare la propria repo in locale
 
@@ -44,7 +57,7 @@ npm run dev
 ```
 
 ## 6. Aprire il Link di Artisan Serve
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 ## 7. Avviare MAMP/LAMP
 
