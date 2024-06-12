@@ -414,7 +414,7 @@ class PlayersTableSeeder extends Seeder {
             'X-AUTH-TOKEN' => env('FUTDB_API_TOKEN')
         ])->get('https://futdb.app/api/players');
         
-        $data = $response->json(); // Prendere i dati
+        $data = $response->json(); // Prendere i dati come array associativo
 
         foreach ($data['items'] as $playerData) {
             $newPlayer = new Player();
