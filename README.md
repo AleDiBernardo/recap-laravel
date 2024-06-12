@@ -252,7 +252,7 @@ class HousesTableSeeder extends Seeder {
 
 ## Prendere Dati da File di Configurazione (metodo 2)
 
-### Creare il File `seeder-data.php`
+### Creare il File `seeder-data.php` con dati creati da ChatGPT
 Creiamo il file `config/seeder-data.php` con il nostro array di array associativi:
 
 ```php
