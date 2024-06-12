@@ -6,11 +6,11 @@
 - ### creare la repo per il template 
 - ### andare in setting e spuntare `Template repository`
 
-    ![alt text](img/image.png)
+    ![alt text](../img/image.png)
 - ### cliccare sul bottone `Use this template`
-    ![alt text](img/image-1.png)
+    ![alt text](../img/image-1.png)
 - ### successivamente su `Create a new repository`
-    ![alt text](img/image-2.png)
+    ![alt text](../img/image-2.png)
 - ### mettere il nome della repo e successivamente `Create repository`
 - ### clonare la propria repo in locale
 
@@ -42,7 +42,7 @@ npm run dev
 ```
 
 ## 6. Aprire il Link di Artisan Serve
-![alt text](img/image-3.png)
+![alt text](../img/image-3.png)
 
 ## 7. Avviare MAMP/LAMP
 
