@@ -288,7 +288,7 @@ class HousesTableSeeder extends Seeder {
 }
 ```
 
-## Come Non Ripetere Sempre le Chiavi
+## Come Non Ripetere Sempre le Chiavi (non funziona)
 
 Nel caso in cui i dati nell'array hanno lo stesso nome delle chiavi che corrispondono ai nomi delle colonne e abbiamo inserito l'attributo `fillable` nella classe del model sul quale lavoriamo, possiamo fare così:
 
