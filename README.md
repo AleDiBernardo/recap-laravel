@@ -136,6 +136,102 @@ Le migration nel progetto restano.
 
 ---
 
+# SEEDER
+
+## Creare il Seeder
+```bash
+php artisan make:seeder NomeTableSeeder
+```
+Lo troveremo in `database/seeders`.
+
+### Funzione `run()`
+**Verrà eseguita all'inizio.**
+
+```php
+
+class HousesTableSeeder extends Seeder{
+	
+	public function run(): void
+	{
+		//code here
+	}
+}
+```
+
+## Creazione di un Record
+```php
+class HousesTableSeeder extends Seeder {
+    public function run(): void {
+        $newHouse = new House(); // Istanza del model
+        $newHouse->address = "dato";
+        $newHouse->city = "Milano";
+        
+        dd($newHouse); // Stamperà un model di house
+    }
+}
+```
+
+## Eseguire un Seeder
+```bash
+php artisan db:seed --class=HousesTableSeeder
+```
+> **Nota:** Per ora non ci sono i dati nel database.
+
+## Salvare i Dati
+```php
+class HousesTableSeeder extends Seeder {
+    public function run(): void {
+        $newHouse = new House(); // Istanza del model
+        $newHouse->address = "dato";
+        $newHouse->city = "Milano";
+        
+        // dd($newHouse); // Stamperà un model di house
+        
+        $newHouse->save(); // Per salvare i dati e aggiungerli al database
+    }
+}
+```
+
+## Come Usare la Classe Faker per Generare Dati Fittizi
+
+[Documentazione Faker](https://fakerphp.org/)
+
+### Come Usarlo
+```php
+use Faker\Generator as Faker;
+
+class HousesTableSeeder extends Seeder {
+    public function run(Faker $faker): void {
+        $newHouse = new House(); // Istanza del model
+        $newHouse->address = $faker->streetAddress();
+        $newHouse->city = $faker->city();
+        
+        // dd($newHouse); // Stamperà un model di house
+        
+        $newHouse->save(); // Per salvare i dati e aggiungerli al database
+    }
+}
+```
+
+> **Nota:** Se si volessero più dati basta fare un ciclo `for`.
+
+```php
+use Faker\Generator as Faker;
+
+class HousesTableSeeder extends Seeder {
+    public function run(Faker $faker): void {
+        for ($i = 0; $i < 10; $i++) { // Genera 10 record
+            $newHouse = new House(); // Istanza del model
+            $newHouse->address = $faker->streetAddress();
+            $newHouse->city = $faker->city();
+            
+            $newHouse->save(); // Per salvare i dati e aggiungerli al database
+        }
+    }
+}
+```
+---
+
 ## MODEL
 ### Creare il Model
 ```sh
