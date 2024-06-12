@@ -192,7 +192,7 @@ class HousesTableSeeder extends Seeder {
 }
 ```
 
-## Come Usare la Classe Faker per Generare Dati Fittizi
+## Come Usare la Classe Faker per Generare Dati Fittizi (metodo 1)
 
 [Documentazione Faker](https://fakerphp.org/)
 
@@ -250,7 +250,7 @@ class HousesTableSeeder extends Seeder {
 }
 ```
 
-## Prendere Dati da File di Configurazione
+## Prendere Dati da File di Configurazione (metodo 2)
 
 ### Creare il File `seeder-data.php`
 Creiamo il file `config/seeder-data.php` con il nostro array di array associativi:
@@ -323,7 +323,7 @@ class HousesTableSeeder extends Seeder {
 }
 ```
 
-## Prendere Dati Tramite API
+## Prendere Dati Tramite API (metodo 3)
 
 ### Esempio di Utilizzo di API nella Funzione `run()`
 ```php
