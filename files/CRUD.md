@@ -1,6 +1,7 @@
 [README](../README.md)<br>
 ### **Precedente:**
 [CONTROLLER](CONTROLLER.md)
+
 ---
 
 ### Operazioni CRUD in un Controller Resource di Laravel
