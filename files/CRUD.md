@@ -39,6 +39,29 @@ Questo comando crea un controller chiamato `UserController` con metodi per gesti
     }
     ```
 
+    **Nella view create.blade.php:**
+    ```php
+    <!-- resources/views/users/create.blade.php -->
+
+    <form action="{{ route('users.store') }}" method="POST"> //metodo POST
+        @csrf //cokie
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ old('name') }}">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Create User</button>
+    </form>
+
+    ```
+
 3. **store()** - Salva una nuova risorsa nel database.
 
     ```php
@@ -77,6 +100,15 @@ Questo comando crea un controller chiamato `UserController` con metodi per gesti
         return view('users.show', compact('user'));
     }
     ```
+    **Nella view show.blade.php:**
+    ```php
+    <!-- resources/views/users/show.blade.php -->
+
+    <h1>{{ $user->name }}</h1>
+    <p>Email: {{ $user->email }}</p>
+
+    ```
+
 
 5. **edit($id)** - Mostra il form per modificare una risorsa esistente.
 
@@ -94,6 +126,30 @@ Questo comando crea un controller chiamato `UserController` con metodi per gesti
     {
         return view('users.edit', compact('user'));
     }
+    ```
+
+    **Nella view edit.blade.php:**
+    ```php
+    <!-- resources/views/users/edit.blade.php -->
+
+    <form action="{{ route('users.update', $user->id) }}" method="POST"> //POST
+        @csrf //cookie
+        @method('PUT') //PUT
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ $user->name }}">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ $user->email }}">
+        </div>
+        <div>
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Update User</button>
+    </form>
+
     ```
 
 6. **update(Request $request, $id)** - Aggiorna una risorsa esistente nel database.
