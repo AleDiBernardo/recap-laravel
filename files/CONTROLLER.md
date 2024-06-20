@@ -71,4 +71,4 @@ $book->save();
 ```
 
 ### **Successivo:**
-[ALTRI PASSAGGI](OTHER.md)
+[OPERAZIONI CRUD](CRUD.md)

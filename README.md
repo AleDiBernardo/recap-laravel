@@ -9,6 +9,7 @@
 [MODEL](files/MODEL.md)<br>
 [VIEW](files/VIEW.md)<br>
 [CONTROLLER](files/CONTROLLER.md)<br>
+[OPERAZIONI CRUD](files/CRUD.md)<br>
 [ALTRI PASSAGGI](files/OTHER.md)<br>
 
 ---
