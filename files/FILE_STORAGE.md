@@ -6,6 +6,9 @@
 
 # File Storage
 
+#### [Documentazione](https://laravel.com/docs/10.x/filesystem#main-content)
+> **Nota:** Versione 10
+
 ## Creare la colonna contenente il nome del file
 
 Aggiungi una colonna alla tua tabella del database per memorizzare il nome o il percorso del file.
