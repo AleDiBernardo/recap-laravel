@@ -1,6 +1,6 @@
 [README](../README.md)<br>
 ### **Precedente:**
-[CRUD](CRUD.md)
+[OPERAZIONI CRUD](CRUD.md)
 
 ---
 
