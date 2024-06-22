@@ -211,4 +211,4 @@ Route::resource('users', UserController::class);
 Questi metodi coprono le operazioni CRUD e sono standardizzati per essere facilmente utilizzati e mantenuti nelle applicazioni Laravel.
 
 ### **Successivo:**
-[FILE_STORAGE](FILE_STORAGE.md)
+[FORM_REQUEST_VALIDATION](FORM_REQUEST_VALIDATION.md)
