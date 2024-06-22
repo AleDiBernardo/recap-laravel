@@ -4,7 +4,12 @@
 
 ---
 
-### Form Request Validation
+# Form Request Validation
+
+#### [Documentazione](https://laravel.com/docs/10.x/validation#form-request-validation)
+> **Nota:** Versione 10
+
+<br>
 
 Le form request validation sono utilizzate per validare automaticamente i dati inviati da un form HTTP prima di elaborarli nel controller.
 
