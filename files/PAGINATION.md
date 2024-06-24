@@ -10,8 +10,7 @@ Sostituisci `::all()` con `::paginate(numeroElementi)` per abilitare la paginazi
 
 ```php
 public function index(Request $request) {
-    $perPage = $request->get('per_page', 10); // Numero di elementi per pagina, predefinito a 10
-    $posts = Post::paginate($perPage);
+    $posts = Post::paginate(10); //Numero pagine di default
     return view('posts.index', compact('posts', 'perPage'));
 }
 ```
