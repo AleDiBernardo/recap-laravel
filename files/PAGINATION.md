@@ -10,7 +10,7 @@ Sostituisci `::all()` con `::paginate(numeroElementi)` per abilitare la paginazi
 
 ```php
 public function index(Request $request) {
-    $posts = Post::paginate(10); //Numero pagine di default
+    $posts = Post::paginate(10); //Numero di elementi per pagina di default
     return view('posts.index', compact('posts', 'perPage'));
 }
 ```
@@ -61,10 +61,123 @@ Aggiorna la chiamata della paginazione per includere il numero di elementi per p
 {{ $posts->appends(['per_page' => $perPage])->links() }}
 ```
 
+
+### Assegnare la Categoria tramite Form in Laravel
+
+#### Mostrare la Categoria nell'index.blade.php
+
+Nel file `index.blade.php`, usa il null safe operator `?` per mostrare la categoria.
+
+```php
+<td>{{ $curPost->category?->name }}</td>
+```
+
+#### Creare il Post con la Categoria
+
+##### Controller: Funzione `create`
+
+Nel metodo `create` del controller principale, passa tutte le categorie alla vista.
+
+```php
+public function create()
+{
+    $categories = Category::all();
+    return view('posts.create', compact('categories'));
+}
+```
+
+##### Blade: Form di creazione (create.blade.php)
+
+Aggiungi il seguente codice per il form di selezione della categoria.
+
+```php 
+<label for="category_id" class="form-label">Categoria</label>
+<select class="form-select" name="category_id" id="category_id">
+    <option value=""></option>
+    @foreach($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+</select>
+```
+
+##### Validazione della Request
+
+Nella request, aggiungi la validazione per l'attributo `category_id`.
+
+```php
+public function rules()
+{
+    return [
+        'category_id' => ['nullable'],
+        // altre regole di validazione
+    ];
+}
+```
+
+##### Modello: Aggiungi al fillable
+
+Nel modello del Post, assicurati che `category_id` sia aggiunto al `$fillable`.
+
+```php
+protected $fillable = [
+    'title',
+    'content',
+    'category_id',
+    // altri attributi
+];
+```
+
+#### Modifica del Valore della Categoria
+
+##### Controller: Funzione `edit`
+
+Nel metodo `edit` del controller, passa tutte le categorie alla vista.
+
+```php
+public function edit(Post $post)
+{
+    $categories = Category::all();
+    return view('posts.edit', compact('post', 'categories'));
+}
+```
+
+##### Blade: Form di modifica (edit.blade.php)
+
+Usa il seguente codice per il form di selezione della categoria, con il valore pre-selezionato.
+
+```php
+<label for="category_id" class="form-label">Categoria</label>
+<select class="form-select" name="category_id" id="category_id">
+    <option value=""></option>
+    @foreach($categories as $category)
+        <option @selected($post->category?->id == $category->id) value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+</select>
+```
+
+##### Validazione della Request
+
+Nella request, aggiungi la validazione per l'attributo `category_id`.
+
+```php
+public function rules()
+{
+    return [
+        'category_id' => ['nullable'],
+        // altre regole di validazione
+    ];
+}
+```
+
 ### Riepilogo
 
-1. **Controller**: Sostituisci `::all()` con `::paginate($perPage)` nella funzione `index`.
-2. **Blade**: Usa `{{ $posts->links() }}` per visualizzare la paginazione.
-3. **AppServiceProvider**: Aggiungi `Paginator::useBootstrapFive();` nel metodo `boot`.
-4. **Form**: Crea un form per permettere agli utenti di selezionare il numero di elementi per pagina.
-5. **Paginazione**: Aggiorna la chiamata della paginazione per includere parametri aggiuntivi.
+1. **Mostrare la Categoria**: Usa il null safe operator `?` per mostrare la categoria nell'index.
+2. **Creazione del Post**:
+    - Passa le categorie alla vista nel metodo `create` del controller.
+    - Aggiungi un form di selezione della categoria nel file `create.blade.php`.
+    - Aggiungi la validazione per `category_id` nella request.
+    - Aggiungi `category_id` al `$fillable` nel modello.
+3. **Modifica del Post**:
+    - Passa le categorie alla vista nel metodo `edit` del controller.
+    - Aggiungi un form di selezione della categoria nel file `edit.blade.php` con il valore pre-selezionato.
+    - Aggiungi la validazione per `category_id` nella request.
