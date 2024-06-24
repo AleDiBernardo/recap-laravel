@@ -90,7 +90,7 @@ public function create()
 
 Aggiungi il seguente codice per il form di selezione della categoria.
 
-```php 
+```html 
 <label for="category_id" class="form-label">Categoria</label>
 <select class="form-select" name="category_id" id="category_id">
     <option value=""></option>
@@ -145,7 +145,7 @@ public function edit(Post $post)
 
 Usa il seguente codice per il form di selezione della categoria, con il valore pre-selezionato.
 
-```php
+```html
 <label for="category_id" class="form-label">Categoria</label>
 <select class="form-select" name="category_id" id="category_id">
     <option value=""></option>
