@@ -78,8 +78,98 @@ class Car extends Model
     }
 }
 ```
+<br>
 
-### Riepilogo
 
-1. **Migration**: Definisci le chiavi esterne e le relazioni nel file di migrazione usando il metodo `table` di `Schema`.
-2. **Model**: Definisci i metodi di relazione nei modelli per rappresentare la relazione uno a molti (1 a N).
+### Relazione N a N 
+
+Per collegare le tabelle `accessories` e `cars` in una relazione molti-a-molti (N a N) è necessario creare la tabella ponte e definire le relazioni nei rispettivi modelli.
+
+#### 1. Creare la Tabella pivot
+
+La tabella di pivot conterrà le chiavi esterne di entrambe le tabelle principali.
+
+##### Esempio di Migrazione
+
+```php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAccessoryCarTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('accessory_car', function (Blueprint $table) {
+            $table->unsignedBigInteger('accessory_id');
+            $table->foreign('accessory_id')->references('id')->on('accessories')->cascadeOnDelete();
+
+            $table->unsignedBigInteger('car_id');
+            $table->foreign('car_id')->references('id')->on('cars')->cascadeOnDelete();
+            $table->primary(['accessory_id','car_id']);
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('accessory_car');
+    }
+}
+```
+> **Nota:** Il nome della tabella pivot deve essere composto dal nome di entrambi le tabelle in ordine alfabetico
+
+
+#### 2. Definire le Relazioni nei Modelli
+
+##### Modello Accessory
+
+Nel modello `Accessory`, aggiungi una funzione `cars` per definire la relazione molti-a-molti.
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Accessory extends Model
+{
+    use HasFactory;
+
+    public function cars()
+    {
+        return $this->belongsToMany(Car::class);
+    }
+}
+```
+
+##### Modello Car
+
+Nel modello `Car`, aggiungi una funzione `accessories` per definire la relazione molti-a-molti.
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Car extends Model
+{
+    use HasFactory;
+
+    public function accessories()
+    {
+        return $this->belongsToMany(Accessory::class);
+    }
+}
+```
