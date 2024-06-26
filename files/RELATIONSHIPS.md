@@ -173,3 +173,102 @@ class Car extends Model
     }
 }
 ```
+<br>
+
+### Gestire le operazioni CRUD N:N
+
+#### 1. Gestire la Creazione (Store)
+
+Quando crei un nuovo `Car`, associagli gli `Accessories` se presenti nel `request`:
+
+```php
+public function store(StoreCarRequest $request)
+{
+    
+    $car = Car::create($request->all());
+
+    if ($request->has('accessories')) {
+        $car->accessories()->attach($request->accessories);
+    }
+
+    return redirect()->route('cars.index')->with('success', 'Car created successfully.');
+}
+```
+<br>
+
+#### 2. Gestire la Lettura (Read)
+
+Per mostrare i dati, ad esempio in una vista di modifica (`edit`), recupera il `Car` con i suoi `Accessories` associati:
+
+```php
+public function edit(Car $car)
+{
+    $accessories = Accessory::all();
+    return view('cars.edit', compact('car','accessories'));
+}
+```
+<br>
+
+#### 3. Gestire l'Aggiornamento (Update)
+
+Per aggiornare un `Car` e i suoi `Accessories`:
+
+```php
+public function update(UpdateCarRequest $request, Car $car)
+{
+
+    $car->update($request->all());
+    $car->accessories()->sync($request->accessories);
+   
+    return redirect()->route('cars.index')->with('success', 'Car updated successfully.');
+}
+```
+<br>
+
+#### 4. Gestire la Cancellazione (Delete)
+
+Per cancellare un `Car` e le sue relazioni molti-a-molti:
+
+```php
+public function destroy(Car $car)
+{
+    $car->accessories()->detach();
+    $car->delete();
+
+    return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');
+}
+```
+<br>
+
+### Form nella view di creazione
+
+Mostrare i checkbox per gli `Accessories` con il loro stato selezionato se associati al `Car`:
+
+```html
+<div class="form-group">
+            <label for="accessories">Accessories:</label><br>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                @foreach ($accessories as $accessory)
+                    <input type="checkbox" class="btn-check" id="accessory-{{ $accessory->id }}" name="accessories[]" value="{{ $accessory->id }}" @checked(in_array($accessory->id, old('accessories', [])))>
+                    <label class="btn btn-outline-primary" for="accessory-{{ $accessory->id }}">{{ $accessory->name }}</label>
+                @endforeach
+            </div>
+        </div>
+```
+
+### Form nella view di modifica
+
+Mostrare i checkbox per gli `Accessories` con il loro stato selezionato se associati al `Car`:
+
+```html
+<div class="form-group">
+    <label for="accessories">Accessories:</label><br>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        @foreach ($accessories as $accessory)
+            <input type="checkbox" class="btn-check" id="accessory-{{ $accessory->id }}" name="accessories[]" value="{{ $accessory->id }}" @checked($car->accessories->contains($accessory->id))>
+            <label class="btn btn-outline-primary" for="accessory-{{ $accessory->id }}">{{ $accessory->name }}</label>
+        @endforeach
+    </div>
+</div>
+```
+
