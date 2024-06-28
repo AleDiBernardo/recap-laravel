@@ -16,6 +16,7 @@
 --- 
 
 ### ALTRI ARGOMENTI 
+[API](files/API.md)<br>
 [PAGINAZIONE](files/PAGINATION.md)<br>
 [RELATIONSHIPS](files/RELATIONSHIPS.md)<br>
 [ALTRI PASSAGGI](files/OTHER.md)
